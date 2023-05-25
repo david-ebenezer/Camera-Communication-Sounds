@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .drum-button{
+      background-color: rgb(4, 20, 34);
+      color: #ffff;
+      font-family: "Century Gothic";
+      width: 200px;
+      border-radius: 4px;
+    }
+    .button-container{
+  display: grid;
+  row-gap: 10px;
+  column-gap: 50px;
+  grid-template-columns: repeat(4, auto);
+}
+
+    .drum-button:nth-child(8n+4) {
+  background: rgb(255, 255, 255);
+  color: black;
+  border-radius: 4px;
+}
+  .drum-button:nth-last-child(1){
+    background: rgb(67, 121, 17);
+  color: black;
+  border-radius: 4px;
+  }
+  .drum-button:nth-child(8n+0) {
+  background: rgb(248, 24, 24);
+  color: black;
+  border-radius: 4px;
+}
+h1{
+  font-family: "Century Gothic";
+  color: #ffff;
+  
+}
+.t{
+  background-color: rgb(4, 20, 34);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+.tit{
+  height: 120px;
+
+
+}
+    body{
+      gap: 40px;
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body onload="createbuttons()">
+  <div class="tit">
+    <div class="t"><h1>Camera Communication Sounds</h1></div>
+    
+  </div>
+  <div class="button-container">
+    
+  </div>
+  
+  <audio id="audio"></audio>
+  <script>
+    var buttons = document.querySelectorAll(".drum-button");
+    var sounds = [
+      'Camera 1 Closeup1.mp3',  
+      'Camera 1 Closeup 2.mp3', 
+      'Camera 1 Closeup 3.mp3',  
+      'Camera 1 on Preview.mp3',  
+      'Camera 1 Audience Shot.mp3', 
+      'Camera 1 Instruments Shot.mp3',
+      'Camera 1 Wide.mp3', 
+      'Camera 1 Input missing.mp3',
+      'Camera 2 Closeup 1.mp3', 
+      'Camera 2 Closeup 2.mp3', 
+      'Camera 2 Closeup 3.mp3', 
+      'Camera 2 on Preview.mp3', 
+      'Camera 2 Audience Shot.mp3', 
+      'Camera 2 Instruments Shot.mp3', 
+      'Camera 2 Wide.mp3', 
+      'Camera 2 Input missing.mp3', 
+      'Camera 3 Closeup 1.mp3', 
+      'Camera 3 Closeup 2.mp3', 
+      'Camera 3 Closeup 3.mp3', 
+      'Camera 3 on Preview.mp3', 
+      'Camera 3 Audience Shot.mp3', 
+      'Camera 3 Instruments Shot.mp3', 
+      'Camera 3 Wide.mp3', 
+      'Camera 3 Input missing.mp3', 
+      'Camera 4 Closeup 1.mp3', 
+      'Camera 4 Closeup 2.mp3', 
+      'Camera 4 Closeup 3.mp3', 
+      'Camera 4 on Preview.mp3', 
+      'Camera 4 Audience Shot.mp3', 
+      'Camera 4 Instruments Shot.mp3', 
+      'Camera 4 Wide.mp3',
+      'Camera 4 Input missing.mp3', 
+      'Ask the audio team to listen to the walkie talkie.mp3'
+    ];
+    function createbuttons(){
+      for (var i = 0; i < sounds.length; i++) {
+        var button = document.createElement("button");
+        button.className = "drum-button";
+        button.innerHTML = sounds[i].slice(0,-4);
+        document.querySelector(".button-container").appendChild(button);
+        button.addEventListener("click", function() {
+          var sound = new Audio("sounds/" + this.innerHTML+".mp3");
+          sound.play();
+        });
+      
+      } 
+    }
+    
+
+  </script
+
+</body>
+</html>
+
+
